@@ -1,0 +1,62 @@
+﻿@model string[]
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        .jumbotron {
+            background-color: rgba(255, 255, 255, 0.7);
+        }
+
+        button {
+            position: absolute;
+            bottom: 50px;
+            left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <video autoplay loop muted>
+        <source src="~/videos/bg1.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <header>
+        <div class="jumbotron text-center py-2">
+            <h2 class="display-5">Welcome to Nuoc Mam Ba Hai</h2>
+            <p class="lead">You only live once, buy fish sauce today !</p>
+            <hr class="my-2">
+            <p>Discover a world of fish sauce.</p>
+            <a class="btn btn-primary btn-sm" href="/Product" role="button">Browse Products</a>
+        </div>
+    </header>
+
+    <section>
+        <div class="row">
+            @foreach (var imagePath in Model)
+            {
+                <div class="col-md-3">
+                    <div class="card">
+                        <img src="@imagePath" alt="Random Fish Sauce" class="card-img-top">
+                    </div>
+                </div>
+            }
+        </div>
+    </section>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
